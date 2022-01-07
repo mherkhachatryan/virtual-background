@@ -50,7 +50,7 @@ function SegmentationConfigCard(props: SegmentationConfigCardProps) {
       case 'mlkit':
         if (
           (backend !== 'wasm' && backend !== 'wasmSimd') ||
-          inputResolution !== '256x256'
+            (inputResolution !== '256x256' && inputResolution !=='144x256')
         ) {
           backend = props.isSIMDSupported ? 'wasmSimd' : 'wasm'
           inputResolution = '256x256'
@@ -163,6 +163,9 @@ function SegmentationConfigCard(props: SegmentationConfigCardProps) {
               </MenuItem>
               <MenuItem value="160x96" disabled={props.config.model !== 'meet'}>
                 160x96
+              </MenuItem>
+              <MenuItem value="144x256" disabled={props.config.model !== 'mlkit'}>
+                144x256
               </MenuItem>
             </Select>
           </FormControl>

@@ -25,3 +25,6 @@ yarn-error.log*
 
 # bazel output
 bazel-*
+
+.idea/
+*.mp4
